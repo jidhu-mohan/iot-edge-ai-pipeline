@@ -27,16 +27,32 @@ This simplified pipeline demonstrates concepts used in:
 ### Prerequisites
 
 ```bash
-# Required Python packages
-pip install numpy pandas scikit-learn
+# Install required Python packages
+pip install -r requirements.txt
+
+# Or install manually:
+pip install numpy pandas scikit-learn streamlit plotly
 ```
 
 ### Run the Demo
 
+**Option 1: Command Line Demo (Original)**
 ```bash
 cd student-version
 python iot_pipeline_demo.py
 ```
+
+**Option 2: Interactive Web Dashboard (Recommended)**
+```bash
+cd student-version
+streamlit run streamlit_dashboard.py
+```
+
+The web dashboard will open in your browser at `http://localhost:8501` and provide:
+- Real-time interactive charts
+- Live anomaly detection visualization
+- Educational explanations and controls
+- Data tables and metrics
 
 ## What Happens When You Run It
 
@@ -62,6 +78,27 @@ The AI will now analyze sensor data and detect anomalies in real-time.
 ```
 
 The system processes live sensor data and the AI identifies unusual patterns in real-time.
+
+### Interactive Web Dashboard
+```
+🏭 IoT Edge AI Pipeline - Live Dashboard
+
+📊 Real-Time Metrics
+Total Readings: 156    Anomalies Detected: 23    Anomaly Rate: 14.7%    Active Sensors: 4
+
+🌡️ Live Sensor Data
+[Interactive charts showing real-time sensor data with anomaly highlighting]
+
+🚨 Anomaly Detection Summary
+[Bar chart of anomalies by sensor type + Recent alerts panel]
+```
+
+The web dashboard provides:
+- **Interactive charts**: Zoom, pan, and hover for details
+- **Real-time updates**: Data refreshes every second
+- **Visual anomaly detection**: Red dots for anomalies, blue for normal
+- **Educational controls**: Start/stop pipeline, clear data
+- **Live metrics**: Running totals and statistics
 
 ## Understanding the Code Structure
 
@@ -205,11 +242,19 @@ A: All AI systems have false positives and negatives. In production, you'd combi
 
 ## Next Steps for Students
 
-1. **Modify the demo** - Change sensor parameters, add new sensors, adjust timing
-2. **Experiment with features** - Try different statistical calculations
-3. **Test different ML models** - Replace Isolation Forest with other algorithms
-4. **Add visualization** - Plot sensor data and anomaly scores over time
-5. **Study the main codebase** - See how this scales to production systems
+1. **Explore the web dashboard** - Use the interactive Streamlit interface to visualize data
+2. **Modify the demo** - Change sensor parameters, add new sensors, adjust timing
+3. **Experiment with features** - Try different statistical calculations
+4. **Test different ML models** - Replace Isolation Forest with other algorithms
+5. **Compare interfaces** - Run both command-line and web versions to see differences
+6. **Study the main codebase** - See how this scales to production systems
+
+### Dashboard Features to Explore
+
+- **Real-time charts**: Watch sensor data update live with anomaly highlighting
+- **Interactive controls**: Start/stop the pipeline, clear data, adjust parameters
+- **Data analysis**: Use the raw data table to understand feature engineering
+- **Pattern recognition**: Observe how different sensors behave and correlate
 
 ## Connections to Production Systems
 

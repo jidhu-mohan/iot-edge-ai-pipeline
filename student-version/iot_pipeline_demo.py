@@ -59,8 +59,8 @@ class IoTSensor:
         3. Package data in a standard format
         """
 
-        # Occasionally inject anomalies (15% chance for better demonstration)
-        if random.random() < 0.15:
+        # Occasionally inject anomalies (05% chance for better demonstration)
+        if random.random() < 0.05:
             # Create significant anomalies that go outside normal bounds
             anomaly_factor = random.choice([-1.0, 1.0])
             anomaly_value = self.current_value + anomaly_factor * (self.max_val - self.min_val) * 0.3
