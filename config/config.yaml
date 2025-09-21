@@ -1,0 +1,94 @@
+mqtt:
+  broker_host: localhost
+  broker_port: 1883
+  topics:
+    sensor_data: "sensors/+/data"
+    alerts: "alerts/+/notification"
+
+data_processing:
+  window_size: 100
+  feature_window: 10
+  buffer_size: 1000
+
+models:
+  default_models:
+    - name: "anomaly_detector"
+      type: "anomaly_detection"
+      path: "models/anomaly_model"
+    - name: "temperature_classifier"
+      type: "classification"
+      path: "models/temp_classifier"
+
+inference:
+  max_inference_time_ms: 100
+  max_model_size_mb: 10
+  alert_thresholds:
+    anomaly_score: 0.8
+    temperature_alert: 35.0
+    humidity_alert: 85.0
+
+monitoring:
+  log_level: "INFO"
+  stats_interval_seconds: 30
+  performance_monitoring: true
+
+sensors:
+  simulation:
+    enabled: true
+    sensors:
+      - id: "temp_001"
+        type: "temperature"
+        location: "factory_floor"
+        min_val: 15.0
+        max_val: 35.0
+        unit: "°C"
+        sampling_rate: 0.5
+        noise_factor: 1.0
+      - id: "temp_002"
+        type: "temperature"
+        location: "warehouse"
+        min_val: 10.0
+        max_val: 30.0
+        unit: "°C"
+        sampling_rate: 0.2
+        noise_factor: 0.8
+      - id: "hum_001"
+        type: "humidity"
+        location: "factory_floor"
+        min_val: 30.0
+        max_val: 90.0
+        unit: "%"
+        sampling_rate: 0.5
+        noise_factor: 2.0
+      - id: "hum_002"
+        type: "humidity"
+        location: "warehouse"
+        min_val: 40.0
+        max_val: 80.0
+        unit: "%"
+        sampling_rate: 0.2
+        noise_factor: 1.5
+      - id: "vib_001"
+        type: "vibration"
+        location: "motor_1"
+        min_val: 0.0
+        max_val: 10.0
+        unit: "m/s²"
+        sampling_rate: 2.0
+        noise_factor: 0.5
+      - id: "vib_002"
+        type: "vibration"
+        location: "motor_2"
+        min_val: 0.0
+        max_val: 8.0
+        unit: "m/s²"
+        sampling_rate: 2.0
+        noise_factor: 0.3
+      - id: "press_001"
+        type: "pressure"
+        location: "pipe_main"
+        min_val: 100.0
+        max_val: 150.0
+        unit: "kPa"
+        sampling_rate: 1.0
+        noise_factor: 0.2
